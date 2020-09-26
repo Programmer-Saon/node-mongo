@@ -2,6 +2,9 @@ const express = require('express');
 const  app = express();
 const cors = require('cors');
 app.use(cors());
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+//Get start...........
 
 app.get("/", (req,res) => {
     const fruit = {
@@ -26,5 +29,21 @@ app.get("/user/:id", (req,res) =>{
        id, name
     });
 })
+
+
+
+
+
+//Get end............
+
+//post start
+
+app.post('/addUser',(req,res)=>{
+   //post
+   const user= req.body;
+   user.id = 33;
+   res.send(user);
+});
+
 
 app.listen(3000,()=>{console.log("listening to port 3000")});
